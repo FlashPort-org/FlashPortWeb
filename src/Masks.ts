@@ -38,7 +38,7 @@ export class Masks extends Sprite
             tree.y = (this.height - tree.height) / 2;
 
             this.masker = new Sprite();
-            this.masker.graphics.beginFill(0x000000);
+            this.masker.graphics.beginFill(0x000000, .75);
             this.masker.graphics.drawCircle(0, 0, 150);
             this.masker.x = this.width / 2;
             this.masker.y = this.height / 2;

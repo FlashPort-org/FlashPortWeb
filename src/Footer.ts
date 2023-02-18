@@ -12,10 +12,10 @@ export class Footer extends Sprite
     {
         super();
 
-        this.pin = new Sprite();
+        /* this.pin = new Sprite();
         this.pin.graphics.beginFill(0xFFFFFF);
         this.pin.graphics.drawCircle(0, 0, 20);
-        (this.stage.root as Sprite).addChild(this.pin);
+        (this.stage.root as Sprite).addChild(this.pin); */
 
         this.handleResize();
 
@@ -29,18 +29,18 @@ export class Footer extends Sprite
         let totalLines:number = this.stage.stageWidth / spacing;
         let centerPoint:Point = new Point(this.stage.stageWidth / 2, 200);
 
-        this.pin.x = centerPoint.x;
-        this.pin.y = centerPoint.y;
+        //this.pin.x = centerPoint.x;
+        //this.pin.y = centerPoint.y;
 
         let mat:Matrix = new Matrix();
         mat.createGradientBox(0, 300, Math.PI / 180 * -90, 0, -600);
 
         this.graphics.clear();
+        this.graphics.lineStyle(2, 0xFFFFFF);
+        this.graphics.lineGradientStyle('linear', [0x666666, 0x666666], [.5, 0], [0, 255], mat);
 
         for (let i:number = 0; i <= totalLines; i++)
         {
-            this.graphics.lineStyle(2);
-            this.graphics.lineGradientStyle('linear', [0x666666, 0x666666], [.5, 0], [0, 255], mat);
             this.graphics.moveTo(pos, 0);
 
             let angle:number = Math.atan2( centerPoint.y - -600, centerPoint.x - pos ) * ( 180 / Math.PI )

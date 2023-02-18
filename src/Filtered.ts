@@ -1,3 +1,4 @@
+import { Shape } from "@fp/flash/display";
 import { GradientType } from "@fp/flash/display/GradientType";
 import { Sprite } from "@fp/flash/display/Sprite";
 import { BlurFilter } from "@fp/flash/filters/BlurFilter";
@@ -23,6 +24,7 @@ export class Filtered extends Sprite
         this.graphics.drawRoundRect(0, 0, 500, 500, 15, 15);
 
         let circ:Sprite = new Sprite();
+        circ.name = "circle";
         circ.graphics.lineStyle(5, 0xCCCCCC);
         circ.graphics.beginFill(0xFF7F00);
         circ.graphics.drawCircle(0, 0, 50);
@@ -41,10 +43,10 @@ export class Filtered extends Sprite
         this.addChild(sqr);
 
         let sqr2:Sprite = new Sprite();
-        sqr2.graphics.lineStyle(5, 0x000000);
-        sqr2.graphics.beginFill(0xFFFF00);
+        sqr2.graphics.lineStyle(5, 0x000000, 1);
+        sqr2.graphics.beginFill(0xFF0000, 1);
         sqr2.graphics.drawRect(-50, -50, 100, 100);
-        sqr2.filters = [new GlowFilter(0x0000FF, 1, 20, 20, 2, 100, false, true)];
+        sqr2.filters = [new GlowFilter(0xFFFFFF, 1, 20, 20, 2, 100, false, true)];
         sqr2.x = sqr2.width / 2 + 80;
         sqr2.y = 500 - sqr2.height / 2 - 80;
         this.addChild(sqr2);

@@ -125,7 +125,7 @@ export class Primitives extends Sprite
         let txt:TextField = new TextField();
         txt.defaultTextFormat = fmt;
         txt.text = "Shapes, Fills, Strokes and Bezier Curves";
-        txt.y = this.height + 20;
+        txt.y = 500 + 20;
         txt.x = (this.width - txt.textWidth) / 2;
         this.addChild(txt);
 
