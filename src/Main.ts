@@ -118,7 +118,7 @@ export class Main extends Sprite {
     this.menu.addEventListener(MenuEvent.MENU_CLICKED, this.handleMenuClicked);
     this.addChild(this.menu);
 
-    this.showMenuItem(1);
+    this.showMenuItem(0);
 
     this.stage.addEventListener(AEvent.RESIZE, this.onResize);
 	}

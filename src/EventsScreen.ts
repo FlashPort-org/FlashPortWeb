@@ -10,6 +10,7 @@ import { URLRequest } from "@fp/flash/net/URLRequest";
 import { TextField } from "@fp/flash/text/TextField";
 import { TextFormat } from "@fp/flash/text/TextFormat";
 import { Keyboard } from "@fp/flash/ui/Keyboard";
+import { FlashPort } from "@fp/FlashPort";
 
 
 export class EventsScreen extends Sprite
@@ -28,95 +29,90 @@ export class EventsScreen extends Sprite
         this.graphics.lineStyle(3, 0x00A3D9);
         this.graphics.beginGradientFill("linear", [0x464646, 0xFFFFFF], [.3,.43], [0, 255], btMat);
         this.graphics.drawRoundRect(0, 0, 500, 500, 15, 15);
-
-        var flashMan:Bitmap;
-        let ld:Loader = new Loader();
-        ld.contentLoaderInfo.addEventListener(AEvent.COMPLETE, (e:AEvent):void =>
+        
+        let bmd:BitmapData = new Bitmap(FlashPort.images["FlashPortMan-Med"]).bitmapData;
+        let pos:number = 1;
+        let padding:number = 500 / 3;
+        for (let i:number = 1; i <= 6; i++)
         {
-            let bmd:BitmapData = (ld.contentLoaderInfo.content as Bitmap).bitmapData;
-            let pos:number = 1;
-            let padding:number = 500 / 3;
-            for (let i:number = 1; i <= 6; i++)
-            {
-                let hitArea:Sprite = new Sprite();
-                let img:Bitmap = new Bitmap(bmd.clone());
-                img.scaleX = img.scaleY = .8;
-                img.x = -img.width/2;
-                img.y = -img.height/2;
-                hitArea.graphics.beginFill(0xFFFFFF, 0);
-                hitArea.graphics.drawRect(-img.width/2, -img.height/2, img.width, img.height);
-                hitArea.addChild(img);
-                hitArea.buttonMode = true;
+            let hitArea:Sprite = new Sprite();
+            let img:Bitmap = new Bitmap(bmd.clone());
+            img.scaleX = img.scaleY = .8;
+            img.x = -img.width/2;
+            img.y = -img.height/2;
+            hitArea.graphics.beginFill(0xFFFFFF, 0);
+            hitArea.graphics.drawRect(-img.width/2, -img.height/2, img.width, img.height);
+            hitArea.addChild(img);
+            hitArea.buttonMode = true;
 
-                hitArea.x = (pos * padding) - (padding / 2);
-                hitArea.y = (i <= 3) ? (hitArea.height/2) + 40 : 500 - (hitArea.height/2) - 40;
-                this.images.push(hitArea);
-                this.addChild(hitArea);
-                
-                pos++;
+            hitArea.x = (pos * padding) - (padding / 2);
+            hitArea.y = (i <= 3) ? (hitArea.height/2) + 40 : 500 - (hitArea.height/2) - 40;
+            this.images.push(hitArea);
+            this.addChild(hitArea);
+            
+            pos++;
 
-                if (i % 3 == 0) pos = 1;
-            }
+            if (i % 3 == 0) pos = 1;
+        }
 
-            let fmt:TextFormat = new TextFormat('Arial', 16);
+        let fmt:TextFormat = new TextFormat('Arial', 16);
 
-            let txt1:TextField = new TextField();
-            txt1.defaultTextFormat = fmt;
-            txt1.text = "Mouse CLICK";
-            txt1.x = this.images[0].x - this.images[0].width /2 - 18;
-            txt1.y = this.images[0].y + this.images[0].height/2;
-            this.addChild(txt1);
+        let txt1:TextField = new TextField();
+        txt1.defaultTextFormat = fmt;
+        txt1.text = "Mouse CLICK";
+        txt1.x = this.images[0].x - this.images[0].width /2 - 18;
+        txt1.y = this.images[0].y + this.images[0].height/2;
+        this.addChild(txt1);
 
-            let txt2:TextField = new TextField();
-            txt2.defaultTextFormat = fmt;
-            txt2.text = "Mouse UP/DOWN";
-            txt2.x = this.images[1].x - this.images[1].width / 2 - 18;
-            txt2.y = this.images[1].y + this.images[1].height / 2;
-            this.addChild(txt2);
+        let txt2:TextField = new TextField();
+        txt2.defaultTextFormat = fmt;
+        txt2.text = "Mouse UP/DOWN";
+        txt2.x = this.images[1].x - this.images[1].width / 2 - 18;
+        txt2.y = this.images[1].y + this.images[1].height / 2;
+        this.addChild(txt2);
 
-            let txt3:TextField = new TextField();
-            txt3.defaultTextFormat = fmt;
-            txt3.text = "Mouse OVER/OUT";
-            txt3.x = this.images[2].x - this.images[2].width / 2 - 18;
-            txt3.y = this.images[2].y + this.images[2].height / 2;
-            this.addChild(txt3);
+        let txt3:TextField = new TextField();
+        txt3.defaultTextFormat = fmt;
+        txt3.text = "Mouse OVER/OUT";
+        txt3.x = this.images[2].x - this.images[2].width / 2 - 18;
+        txt3.y = this.images[2].y + this.images[2].height / 2;
+        this.addChild(txt3);
 
-            let txt4:TextField = new TextField();
-            txt4.defaultTextFormat = fmt;
-            txt4.text = "Mouse MOVE";
-            txt4.x = this.images[3].x - this.images[3].width / 2 - 18;
-            txt4.y = this.images[3].y + this.images[3].height / 2;
-            this.addChild(txt4);
+        let txt4:TextField = new TextField();
+        txt4.defaultTextFormat = fmt;
+        txt4.text = "Mouse MOVE";
+        txt4.x = this.images[3].x - this.images[3].width / 2 - 18;
+        txt4.y = this.images[3].y + this.images[3].height / 2;
+        this.addChild(txt4);
 
-            this.coordsTxt = new TextField();
-            this.coordsTxt.defaultTextFormat = new TextFormat('Arial', 12, 0xFFFFFF);
-            this.coordsTxt.x = 35;
-            this.coordsTxt.y = this.images[3].y + this.images[3].height / 2 -20;
-            this.coordsTxt.text = "x: 0, y: 0";
-            this.addChild(this.coordsTxt);
+        this.coordsTxt = new TextField();
+        this.coordsTxt.defaultTextFormat = new TextFormat('Arial', 12, 0xFFFFFF);
+        this.coordsTxt.x = 35;
+        this.coordsTxt.y = this.images[3].y + this.images[3].height / 2 -20;
+        this.coordsTxt.text = "x: 0, y: 0";
+        this.addChild(this.coordsTxt);
 
-            let txt5:TextField = new TextField();
-            txt5.defaultTextFormat = fmt;
-            txt5.text = "ENTERFRAME";
-            txt5.x = this.images[4].x - this.images[4].width / 2 - 18;
-            txt5.y = this.images[4].y + this.images[4].height / 2;
-            this.addChild(txt5);
+        let txt5:TextField = new TextField();
+        txt5.defaultTextFormat = fmt;
+        txt5.text = "ENTERFRAME";
+        txt5.x = this.images[4].x - this.images[4].width / 2 - 18;
+        txt5.y = this.images[4].y + this.images[4].height / 2;
+        this.addChild(txt5);
 
-            let txt6:TextField = new TextField();
-            txt6.defaultTextFormat = fmt;
-            txt6.text = "Keyboard";
-            txt6.x = this.images[5].x - this.images[5].width / 2 - 18;
-            txt6.y = this.images[5].y + this.images[5].height / 2;
-            this.addChild(txt6);
+        let txt6:TextField = new TextField();
+        txt6.defaultTextFormat = fmt;
+        txt6.text = "Keyboard";
+        txt6.x = this.images[5].x - this.images[5].width / 2 - 18;
+        txt6.y = this.images[5].y + this.images[5].height / 2;
+        this.addChild(txt6);
 
-            this.images[0].addEventListener(MouseEvent.CLICK, this.handleClick);
-            this.images[1].addEventListener(MouseEvent.MOUSE_DOWN, this.handleMouseDown);
-            this.images[2].addEventListener(MouseEvent.MOUSE_OVER, this.handleMouseOver);
-            this.images[3].addEventListener(MouseEvent.MOUSE_OVER, this.handleMouseOverMove);
-            this.images[4].addEventListener(MouseEvent.MOUSE_OVER, this.handleMouseOverEnterframe);
-            this.stage.addEventListener(KeyboardEvent.KEY_DOWN, this.handleKeyboardDown);
-        });
-        ld.load(new URLRequest("assets/FlashPortMan-Med.png"));
+        this.images[0].addEventListener(MouseEvent.CLICK, this.handleClick);
+        this.images[1].addEventListener(MouseEvent.MOUSE_DOWN, this.handleMouseDown);
+        this.images[2].addEventListener(MouseEvent.MOUSE_OVER, this.handleMouseOver);
+        this.images[3].addEventListener(MouseEvent.MOUSE_OVER, this.handleMouseOverMove);
+        this.images[4].addEventListener(MouseEvent.MOUSE_OVER, this.handleMouseOverEnterframe);
+        this.stage.addEventListener(KeyboardEvent.KEY_DOWN, this.handleKeyboardDown);
+        
 
         let txt:TextField = new TextField();
         txt.defaultTextFormat = new TextFormat('Arial', 22, 0xFFFFFF);

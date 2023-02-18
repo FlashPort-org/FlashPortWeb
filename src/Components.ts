@@ -1,7 +1,7 @@
 import { Sprite } from "@fp/flash/display/Sprite";
 import { Matrix } from "@fp/flash/geom/Matrix";
 import { MouseEvent } from "@fp/flash/events/MouseEvent";
-import { LineChart } from "@fp/com/kl/charts/LineChart";
+/* import { LineChart } from "@fp/com/kl/charts/LineChart";
 import { Plot } from "@fp/com/kl/charts/Plot";
 import { KSlider } from "@fp/com/kl/ui/KSlider";
 import { KSpinner } from "@fp/com/kl/ui/KSpinner";
@@ -10,7 +10,7 @@ import { KCheck } from "@fp/com/kl/ui/KCheck";
 import { KButton } from "@fp/com/kl/ui/KButton";
 import { KTextInput } from "@fp/com/kl/ui/KTextInput";
 import { KCombo } from "@fp/com/kl/ui/KCombo";
-import { KAlert } from "@fp/com/kl/ui/KAlert";
+import { KAlert } from "@fp/com/kl/ui/KAlert"; */
 
 export class Components extends Sprite
 {
@@ -27,7 +27,7 @@ export class Components extends Sprite
         this.graphics.drawRoundRect(0, 0, 500, 500, 15, 15);
 
         
-        var chart:LineChart = new LineChart(500, 300, "Day", "Stock Quantity", this.xFormat);
+        /* var chart:LineChart = new LineChart(500, 300, "Day", "Stock Quantity", this.xFormat);
 		chart.name = "chart";
 		var plots:Plot[] = [];
 		
@@ -79,12 +79,7 @@ export class Components extends Sprite
 		txt.text = "This is a TextInput";
 		txt.y = btnAlert.y;
 		txt.x = btnAlert.x + btnAlert.width + 20;
-		this.addChild(txt);
-		
-		/*var colorPicker:KColorPicker = new KColorPicker();
-		colorPicker.x = txt.x + txt.width + 20;
-		colorPicker.y = txt.y;
-		addChild(colorPicker);*/
+		this.addChild(txt); 
 		
 		var dropdown:KCombo = new KCombo();
 		for (var j:number = 0; j < 50; j++) 
@@ -93,15 +88,15 @@ export class Components extends Sprite
 		}
 		dropdown.x = 25;
 		dropdown.y = 20;
-		this.addChild(dropdown);
+		this.addChild(dropdown);*/
     }
 
 	private handleAlert = (e:MouseEvent):void =>
 	{
-		var alertBox:KAlert = new KAlert("Hello, this is an Alert!", 250);
+		/* var alertBox:KAlert = new KAlert("Hello, this is an Alert!", 250);
 		alertBox.okBTN.addEventListener(MouseEvent.CLICK, this.alertClicked);
 		alertBox.cancelBTN.addEventListener(MouseEvent.CLICK, this.alertClicked);
-		this.addChild(alertBox);
+		this.addChild(alertBox); */
 	}
 	
 	private alertClicked = (e:MouseEvent):void =>

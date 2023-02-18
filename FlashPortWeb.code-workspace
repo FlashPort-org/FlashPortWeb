@@ -5,12 +5,10 @@
 	},
 	{
 		"path": "../FlashPort/src"
-	},
-	{
-		"path": "../FlashPortUI/src"
 	}
 ],
 "settings": {
-	"findUnusedExports.detectCircularImports": true
+	"findUnusedExports.detectCircularImports": true,
+	"liveServer.settings.multiRootWorkspaceName": "FlashPortWeb"
 }
 }

@@ -10,7 +10,6 @@ import { URLRequest } from "@fp/flash/net/URLRequest";
 import { TextField, TextFormat } from "@fp/flash/text";
 import { FlashPort } from "@fp/FlashPort";
 
-
 export class Header extends Sprite
 {
     private mat:Matrix;
@@ -57,7 +56,7 @@ export class Header extends Sprite
         this.githubBtn.x = this.stage.stageWidth - 4;
         this.githubBtn.buttonMode = true;
         this.githubBtn.addEventListener(MouseEvent.CLICK, (e:MouseEvent) => {
-            window.location = "https://github.com/FlashPort-com/FlashPort";
+            window.location.href = "https://github.com/FlashPort-com/FlashPort";
         });
         
         this.addChild(this.githubBtn);
