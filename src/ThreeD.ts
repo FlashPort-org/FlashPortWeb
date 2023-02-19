@@ -5,21 +5,21 @@ import {
   LoaderInfo,
   Sprite,
   Stage3D,
-} from "@fp/flash/display";
-import { Context3D } from "@fp/flash/display3D/Context3D";
-import { Context3DTextureFormat } from "@fp/flash/display3D/Context3DTextureFormat";
-import { Context3DVertexBufferFormat } from "@fp/flash/display3D/Context3DVertexBufferFormat";
-import { IndexBuffer3D } from "@fp/flash/display3D/IndexBuffer3D";
-import { Program3D } from "@fp/flash/display3D/Program3D";
-import { Texture } from "@fp/flash/display3D/textures/Texture";
-import { VertexBuffer3D } from "@fp/flash/display3D/VertexBuffer3D";
-import { AEvent } from "@fp/flash/events";
-import { Matrix, Matrix3D, Vector3D } from "@fp/flash/geom";
-import { URLLoader } from "@fp/flash/net/URLLoader";
-import { URLRequest } from "@fp/flash/net/URLRequest";
-import { TextField, TextFormat } from "@fp/flash/text";
-import { ByteArray } from "@fp/flash/utils/ByteArray";
-import { getTimer } from "@fp/flash/utils/getTimer";
+} from "@flashport/flashport";
+import { Context3D } from "@flashport/flashport";
+import { Context3DTextureFormat } from "@flashport/flashport";
+import { Context3DVertexBufferFormat } from "@flashport/flashport";
+import { IndexBuffer3D } from "@flashport/flashport";
+import { Program3D } from "@flashport/flashport";
+import { Texture } from "@flashport/flashport";
+import { VertexBuffer3D } from "@flashport/flashport";
+import { AEvent } from "@flashport/flashport";
+import { Matrix, Matrix3D, Vector3D } from "@flashport/flashport";
+import { URLLoader } from "@flashport/flashport";
+import { URLRequest } from "@flashport/flashport";
+import { TextField, TextFormat } from "@flashport/flashport";
+import { ByteArray } from "@flashport/flashport";
+import { getTimer } from "@flashport/flashport";
 
 export class ThreeD extends Sprite {
   private mainStage: Stage3D;

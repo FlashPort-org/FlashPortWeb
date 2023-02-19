@@ -1,6 +1,6 @@
-import { GradientType, Shape, Sprite } from "@fp/flash/display";
-import { BlurFilter } from "@fp/flash/filters";
-import { Matrix } from "@fp/flash/geom";
+import { GradientType, Shape, Sprite } from "@flashport/flashport";
+import { BlurFilter } from "@flashport/flashport";
+import { Matrix } from "@flashport/flashport";
 import { Fire } from "./particles/Fire";
 
 

@@ -1,14 +1,14 @@
-import { Bitmap } from "@fp/flash/display/Bitmap";
-import { Loader } from "@fp/flash/display/Loader";
-import { Shape } from "@fp/flash/display/Shape";
-import { Sprite } from "@fp/flash/display/Sprite";
-import { AEvent } from "@fp/flash/events/AEvent";
-import { MouseEvent } from "@fp/flash/events/MouseEvent";
-import { Matrix } from "@fp/flash/geom/Matrix";
-import { Rectangle } from "@fp/flash/geom/Rectangle";
-import { URLRequest } from "@fp/flash/net/URLRequest";
-import { TextField } from "@fp/flash/text/TextField";
-import { TextFormat } from "@fp/flash/text/TextFormat";
+import { Bitmap } from "@flashport/flashport";
+import { Loader } from "@flashport/flashport";
+import { Shape } from "@flashport/flashport";
+import { Sprite } from "@flashport/flashport";
+import { AEvent } from "@flashport/flashport";
+import { MouseEvent } from "@flashport/flashport";
+import { Matrix } from "@flashport/flashport";
+import { Rectangle } from "@flashport/flashport";
+import { URLRequest } from "@flashport/flashport";
+import { TextField } from "@flashport/flashport";
+import { TextFormat } from "@flashport/flashport";
 
 
 export class Masks extends Sprite

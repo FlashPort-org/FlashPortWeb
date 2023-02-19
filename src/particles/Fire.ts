@@ -1,6 +1,6 @@
-import { Shape, Sprite } from "@fp/flash/display";
-import { AEvent } from "@fp/flash/events";
-import { ColorTransform } from "@fp/flash/geom";
+import { Shape, Sprite } from "@flashport/flashport";
+import { AEvent } from "@flashport/flashport";
+import { ColorTransform } from "@flashport/flashport";
 import { Particle } from "./Particle";
 
 

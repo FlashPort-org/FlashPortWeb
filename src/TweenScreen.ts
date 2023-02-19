@@ -1,10 +1,10 @@
-import { Equations } from "@fp/caurina/transitions/Equations";
-import { Tweener } from "@fp/caurina/transitions/Tweener";
-import { Sprite } from "@fp/flash/display/Sprite";
-import { AEvent } from "@fp/flash/events";
-import { Matrix } from "@fp/flash/geom/Matrix";
-import { TextField } from "@fp/flash/text/TextField";
-import { TextFormat } from "@fp/flash/text/TextFormat";
+import { Equations } from "@flashport/flashport";
+import { Tweener } from "@flashport/flashport";
+import { Sprite } from "@flashport/flashport";
+import { AEvent } from "@flashport/flashport";
+import { Matrix } from "@flashport/flashport";
+import { TextField } from "@flashport/flashport";
+import { TextFormat } from "@flashport/flashport";
 
 export class TweenScreen extends Sprite {
   private ball: Sprite;

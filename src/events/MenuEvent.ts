@@ -1,4 +1,4 @@
-import { AEvent } from "@fp/flash/events";
+import { AEvent } from "@flashport/flashport";
 
 export class MenuEvent extends AEvent {
   public static readonly MENU_CLICKED: string = "MENU_CLICKED";

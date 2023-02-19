@@ -1,12 +1,12 @@
-import { Shape } from "@fp/flash/display";
-import { GradientType } from "@fp/flash/display/GradientType";
-import { Sprite } from "@fp/flash/display/Sprite";
-import { BlurFilter } from "@fp/flash/filters/BlurFilter";
-import { DropShadowFilter } from "@fp/flash/filters/DropShadowFilter";
-import { GlowFilter } from "@fp/flash/filters/GlowFilter";
-import { Matrix } from "@fp/flash/geom/Matrix";
-import { TextField } from "@fp/flash/text/TextField";
-import { TextFormat } from "@fp/flash/text/TextFormat";
+import { Shape } from "@flashport/flashport";
+import { GradientType } from "@flashport/flashport";
+import { Sprite } from "@flashport/flashport";
+import { BlurFilter } from "@flashport/flashport";
+import { DropShadowFilter } from "@flashport/flashport";
+import { GlowFilter } from "@flashport/flashport";
+import { Matrix } from "@flashport/flashport";
+import { TextField } from "@flashport/flashport";
+import { TextFormat } from "@flashport/flashport";
 
 
 export class Filtered extends Sprite

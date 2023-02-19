@@ -1,8 +1,8 @@
-import { DisplayObject } from "@fp/flash/display/DisplayObject";
-import { Sprite } from "@fp/flash/display/Sprite";
-import { AEvent } from "@fp/flash/events/AEvent";
-import { TextField } from "@fp/flash/text/TextField";
-import { TextFormat } from "@fp/flash/text/TextFormat";
+import { DisplayObject } from "@flashport/flashport";
+import { Sprite } from "@flashport/flashport";
+import { AEvent } from "@flashport/flashport";
+import { TextField } from "@flashport/flashport";
+import { TextFormat } from "@flashport/flashport";
 
 export class Resizable extends Sprite
 {

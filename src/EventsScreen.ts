@@ -1,16 +1,16 @@
-import { Bitmap } from "@fp/flash/display/Bitmap";
-import { BitmapData } from "@fp/flash/display/BitmapData";
-import { Loader } from "@fp/flash/display/Loader";
-import { Sprite } from "@fp/flash/display/Sprite";
-import { AEvent } from "@fp/flash/events/AEvent";
-import { KeyboardEvent } from "@fp/flash/events/KeyboardEvent";
-import { MouseEvent } from "@fp/flash/events/MouseEvent";
-import { Matrix } from "@fp/flash/geom/Matrix";
-import { URLRequest } from "@fp/flash/net/URLRequest";
-import { TextField } from "@fp/flash/text/TextField";
-import { TextFormat } from "@fp/flash/text/TextFormat";
-import { Keyboard } from "@fp/flash/ui/Keyboard";
-import { FlashPort } from "@fp/FlashPort";
+import { Bitmap } from "@flashport/flashport";
+import { BitmapData } from "@flashport/flashport";
+import { Loader } from "@flashport/flashport";
+import { Sprite } from "@flashport/flashport";
+import { AEvent } from "@flashport/flashport";
+import { KeyboardEvent } from "@flashport/flashport";
+import { MouseEvent } from "@flashport/flashport";
+import { Matrix } from "@flashport/flashport";
+import { URLRequest } from "@flashport/flashport";
+import { TextField } from "@flashport/flashport";
+import { TextFormat } from "@flashport/flashport";
+import { Keyboard } from "@flashport/flashport";
+import { FPConfig } from "@flashport/flashport";
 
 
 export class EventsScreen extends Sprite
@@ -30,7 +30,7 @@ export class EventsScreen extends Sprite
         this.graphics.beginGradientFill("linear", [0x464646, 0xFFFFFF], [.3,.43], [0, 255], btMat);
         this.graphics.drawRoundRect(0, 0, 500, 500, 15, 15);
         
-        let bmd:BitmapData = new Bitmap(FlashPort.images["FlashPortMan-Med"]).bitmapData;
+        let bmd:BitmapData = new Bitmap(FPConfig.images["FlashPortMan-Med"]).bitmapData;
         let pos:number = 1;
         let padding:number = 500 / 3;
         for (let i:number = 1; i <= 6; i++)

@@ -1,8 +1,9 @@
-import { Sprite } from "@fp/flash/display/Sprite";
-import { AEvent, MouseEvent } from "@fp/flash/events";
-import { TextField } from "@fp/flash/text/TextField";
-import { TextFormat } from "@fp/flash/text/TextFormat";
+import { Sprite } from "@flashport/flashport";
+import { AEvent, MouseEvent } from "@flashport/flashport";
+import { TextField } from "@flashport/flashport";
+import { TextFormat } from "@flashport/flashport";
 import { MenuEvent } from "./events/MenuEvent";
+import { TouchEvent } from "@flashport/flashport";
 
 export class Menu extends Sprite {
   private primitivesTxt: TextField;
@@ -26,7 +27,7 @@ export class Menu extends Sprite {
       (this.masksTxt = new TextField()),
       (this.eventsTxt = new TextField()),
       (this.tweensTxt = new TextField()),
-      //(this.componentsTxt = new TextField()),
+      (this.componentsTxt = new TextField()),
       //(this.threeDTxt = new TextField()),
     ];
     let txtNames: string[] = [
@@ -36,7 +37,7 @@ export class Menu extends Sprite {
       "Masks",
       "Events",
       "Animation",
-      //"Components",
+      "Components",
       //"3D",
     ];
 
@@ -56,12 +57,14 @@ export class Menu extends Sprite {
       hitArea.x = pos;
       hitArea.buttonMode = true;
       pos += hitArea.width + spacing;
+      
       hitArea.addEventListener(MouseEvent.CLICK, this.handleMouseClick);
       this.addChild(hitArea);
     }
   }
 
-  private handleMouseClick = (e: MouseEvent) => {
+  private handleMouseClick = (e: AEvent) => {
+    
     this.dispatchEvent(
       new MenuEvent(MenuEvent.MENU_CLICKED, e.currentTarget.name, true)
     );

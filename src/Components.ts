@@ -1,16 +1,16 @@
-import { Sprite } from "@fp/flash/display/Sprite";
-import { Matrix } from "@fp/flash/geom/Matrix";
-import { MouseEvent } from "@fp/flash/events/MouseEvent";
-/* import { LineChart } from "@fp/com/kl/charts/LineChart";
-import { Plot } from "@fp/com/kl/charts/Plot";
-import { KSlider } from "@fp/com/kl/ui/KSlider";
-import { KSpinner } from "@fp/com/kl/ui/KSpinner";
-import { KStepper } from "@fp/com/kl/ui/KStepper";
-import { KCheck } from "@fp/com/kl/ui/KCheck";
-import { KButton } from "@fp/com/kl/ui/KButton";
-import { KTextInput } from "@fp/com/kl/ui/KTextInput";
-import { KCombo } from "@fp/com/kl/ui/KCombo";
-import { KAlert } from "@fp/com/kl/ui/KAlert"; */
+import { Sprite } from "@flashport/flashport";
+import { Matrix } from "@flashport/flashport";
+import { MouseEvent } from "@flashport/flashport";
+import { LineChart } from "@flashport/flashportui";
+import { Plot } from "@flashport/flashportui";
+import { KSlider } from "@flashport/flashportui";
+import { KSpinner } from "@flashport/flashportui";
+import { KStepper } from "@flashport/flashportui";
+import { KCheck } from "@flashport/flashportui";
+import { KButton } from "@flashport/flashportui";
+import { KTextInput } from "@flashport/flashportui";
+import { KCombo } from "@flashport/flashportui";
+import { KAlert } from "@flashport/flashportui";
 
 export class Components extends Sprite
 {
@@ -27,7 +27,7 @@ export class Components extends Sprite
         this.graphics.drawRoundRect(0, 0, 500, 500, 15, 15);
 
         
-        /* var chart:LineChart = new LineChart(500, 300, "Day", "Stock Quantity", this.xFormat);
+        var chart:LineChart = new LineChart(450, 300, "Day", "Stock Quantity", this.xFormat);
 		chart.name = "chart";
 		var plots:Plot[] = [];
 		
@@ -40,7 +40,7 @@ export class Components extends Sprite
 		chart.setData(plots);
 		
 		chart.x = 25;
-		chart.y = 120;
+		chart.y = 105;
 		this.addChild(chart);
 		
 		var slider:KSlider = new KSlider(150);
@@ -88,15 +88,15 @@ export class Components extends Sprite
 		}
 		dropdown.x = 25;
 		dropdown.y = 20;
-		this.addChild(dropdown);*/
+		this.addChild(dropdown);
     }
 
 	private handleAlert = (e:MouseEvent):void =>
 	{
-		/* var alertBox:KAlert = new KAlert("Hello, this is an Alert!", 250);
+		var alertBox:KAlert = new KAlert("Hello, this is an Alert!", 250);
 		alertBox.okBTN.addEventListener(MouseEvent.CLICK, this.alertClicked);
 		alertBox.cancelBTN.addEventListener(MouseEvent.CLICK, this.alertClicked);
-		this.addChild(alertBox); */
+		this.addChild(alertBox);
 	}
 	
 	private alertClicked = (e:MouseEvent):void =>

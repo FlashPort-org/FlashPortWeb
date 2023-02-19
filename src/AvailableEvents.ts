@@ -1,8 +1,8 @@
-import { DisplayObject } from "@fp/flash/display/DisplayObject";
-import { GradientType } from "@fp/flash/display/GradientType";
-import { Sprite } from "@fp/flash/display/Sprite";
-import { MouseEvent } from "@fp/flash/events/MouseEvent";
-import { Matrix } from "@fp/flash/geom/Matrix";
+import { DisplayObject } from "@flashport/flashport";
+import { GradientType } from "@flashport/flashport";
+import { Sprite } from "@flashport/flashport";
+import { MouseEvent } from "@flashport/flashport";
+import { Matrix } from "@flashport/flashport";
 import { Resizable } from "./utils/Resizable";
 
 export class AvailableEvents extends Resizable

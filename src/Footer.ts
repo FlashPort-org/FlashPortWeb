@@ -1,7 +1,7 @@
-import { Sprite } from "@fp/flash/display/Sprite";
-import { AEvent } from "@fp/flash/events/AEvent";
-import { Matrix } from "@fp/flash/geom/Matrix";
-import { Point } from "@fp/flash/geom/Point";
+import { Sprite } from "@flashport/flashport";
+import { AEvent } from "@flashport/flashport";
+import { Matrix } from "@flashport/flashport";
+import { Point } from "@flashport/flashport";
 
 
 export class Footer extends Sprite

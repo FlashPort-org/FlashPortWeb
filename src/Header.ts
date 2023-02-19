@@ -1,14 +1,14 @@
-import { Bitmap } from "@fp/flash/display/Bitmap";
-import { Loader } from "@fp/flash/display/Loader";
-import { Sprite } from "@fp/flash/display/Sprite";
-import { AEvent } from "@fp/flash/events/AEvent";
-import { MouseEvent } from "@fp/flash/events/MouseEvent";
-import { DropShadowFilter } from "@fp/flash/filters";
-import { Matrix } from "@fp/flash/geom/Matrix";
-import { URLLoader } from "@fp/flash/net/URLLoader";
-import { URLRequest } from "@fp/flash/net/URLRequest";
-import { TextField, TextFormat } from "@fp/flash/text";
-import { FlashPort } from "@fp/FlashPort";
+import { Bitmap } from "@flashport/flashport";
+import { Loader } from "@flashport/flashport";
+import { Sprite } from "@flashport/flashport";
+import { AEvent } from "@flashport/flashport";
+import { MouseEvent } from "@flashport/flashport";
+import { DropShadowFilter } from "@flashport/flashport";
+import { Matrix } from "@flashport/flashport";
+import { URLLoader } from "@flashport/flashport";
+import { URLRequest } from "@flashport/flashport";
+import { TextField, TextFormat } from "@flashport/flashport";
+import { FPConfig } from "@flashport/flashport";
 
 export class Header extends Sprite
 {
@@ -38,13 +38,13 @@ export class Header extends Sprite
         this.addChild(desc);
 
 
-        var flashMan:Bitmap = new Bitmap(FlashPort.images['FlashPortMan-Med']);
+        var flashMan:Bitmap = new Bitmap(FPConfig.images['FlashPortMan-Med']);
         flashMan.scaleX = flashMan.scaleY = .5;
         flashMan.x = 10;
         flashMan.y = 8;
         this.addChild(flashMan);
 
-        let github:Bitmap = new Bitmap(FlashPort.images["ForkMeGithub"]);
+        let github:Bitmap = new Bitmap(FPConfig.images["ForkMeGithub"]);
         this.githubBtn = new Sprite();
         this.githubBtn.graphics.beginFill(0xFFFFFF, 0);
         this.githubBtn.graphics.drawRect(-90, 0, 90, 100);

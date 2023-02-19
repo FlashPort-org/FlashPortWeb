@@ -1,5 +1,5 @@
-import { Shape, Sprite } from "@fp/flash/display";
-import { BlurFilter } from "@fp/flash/filters";
+import { Shape, Sprite } from "@flashport/flashport";
+import { BlurFilter } from "@flashport/flashport";
 
 
 export class Particle extends Shape

@@ -1,11 +1,11 @@
-import { GradientType } from "@fp/flash/display/GradientType";
-import { Sprite } from "@fp/flash/display/Sprite";
-import { AEvent } from "@fp/flash/events/AEvent";
-import { DropShadowFilter } from "@fp/flash/filters/DropShadowFilter";
-import { GlowFilter } from "@fp/flash/filters/GlowFilter";
-import { Matrix } from "@fp/flash/geom/Matrix";
-import { TextField } from "@fp/flash/text/TextField";
-import { TextFormat } from "@fp/flash/text/TextFormat";
+import { GradientType } from "@flashport/flashport";
+import { Sprite } from "@flashport/flashport";
+import { AEvent } from "@flashport/flashport";
+import { DropShadowFilter } from "@flashport/flashport";
+import { GlowFilter } from "@flashport/flashport";
+import { Matrix } from "@flashport/flashport";
+import { TextField } from "@flashport/flashport";
+import { TextFormat } from "@flashport/flashport";
 import { Resizable } from "./utils/Resizable";
 
 

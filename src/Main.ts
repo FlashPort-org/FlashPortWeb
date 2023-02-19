@@ -1,9 +1,8 @@
-import { Sprite } from "@fp/flash/display/Sprite";
-import { StageAlign } from "@fp/flash/display/StageAlign";
-import { StageScaleMode } from "@fp/flash/display/StageScaleMode";
-import { AssetLoader } from "@fp/flash/__native/AssetLoader";
-import { AEvent } from "@fp/flash/events";
-import { FlashPort } from "@fp/FlashPort";
+import { Sprite } from "@flashport/flashport";
+import { StageAlign } from "@flashport/flashport";
+import { StageScaleMode } from "@flashport/flashport";
+import { AssetLoader } from "@flashport/flashport";
+import { AEvent } from "@flashport/flashport";
 import { Filtered } from "./Filtered";
 import { Header } from "./Header";
 import { Primitives } from "./Primitives";
@@ -15,15 +14,16 @@ import { EventsScreen } from "./EventsScreen";
 import { TweenScreen } from "./TweenScreen";
 import { MenuEvent } from "./events/MenuEvent";
 import { ThreeD } from "./ThreeD";
-import { Bitmap, BitmapData } from "@fp/flash/display";
-import { Matrix, Rectangle } from "@fp/flash/geom";
+import { Bitmap, BitmapData } from "@flashport/flashport";
+import { Matrix, Rectangle } from "@flashport/flashport";
 import { GatesOfHell } from "./GatesOfHell";
 import { Fire } from "./particles/Fire";
 import CanvasKitInit from "canvaskit-wasm/bin/canvaskit.js";
 import CanvasKitWasm from "canvaskit-wasm/bin/canvaskit.wasm?url";
 import { CanvasKit } from "canvaskit-wasm";
 import { Components } from "./Components";
-import { Tweener } from "@fp/caurina/transitions/Tweener";
+import { Tweener } from "@flashport/flashport";
+import { FPConfig } from "@flashport/flashport";
 
 export class Main extends Sprite {
   private menu: Menu;
@@ -34,12 +34,14 @@ export class Main extends Sprite {
   private events: EventsScreen;
   private tweens: TweenScreen;
   private threed: ThreeD;
+  private gatesOfHell:GatesOfHell;
   private components:Components;
   private menuItems: Sprite[] = [];
   private currMenuItem: Sprite;
 
   constructor() {
-    FlashPort.autoSize = true;
+    FPConfig.autoSize = true;
+    //FPConfig.highDPI = true;
     super();
 
     this.stage.align = StageAlign.TOP_LEFT;
@@ -67,10 +69,10 @@ export class Main extends Sprite {
     footer.y = this.stage.stageHeight;
     this.addChild(footer);
 
-    let gates:GatesOfHell = new GatesOfHell();
-    gates.x = (this.stage.stageWidth - 500) / 2 - 25;
-    gates.y = 800;
-    this.addChild(gates);
+    this.gatesOfHell = new GatesOfHell();
+    this.gatesOfHell.x = (this.stage.stageWidth - 500) / 2 - 25;
+    this.gatesOfHell.y = 800;
+    this.addChild(this.gatesOfHell);
 
     this.primitives = new Primitives();
     this.primitives.x = (this.stage.stageWidth - this.primitives.width) / 2;
@@ -107,10 +109,10 @@ export class Main extends Sprite {
     this.threed.y = 250;
     this.menuItems.push(this.threed); */
 
-    /* this.components = new Components();
+    this.components = new Components();
     this.components.x = (this.stage.stageWidth - this.tweens.width) / 2;
     this.components.y = 250;
-    this.menuItems.push(this.components); */
+    this.menuItems.push(this.components);
 
     this.menu = new Menu();
     this.menu.x = (this.stage.stageWidth - this.menu.getBounds(this.menu).width) / 2;
@@ -180,6 +182,8 @@ export class Main extends Sprite {
     this.masks.x = (this.stage.stageWidth - this.masks.width) / 2;
     this.events.x = (this.stage.stageWidth - this.events.width) / 2;
     this.tweens.x = (this.stage.stageWidth - this.tweens.width) / 2;
+    this.components.x = (this.stage.stageWidth - this.tweens.width) / 2;
+    this.gatesOfHell.x = (this.stage.stageWidth - 500) / 2 - 25;
   };
 }
 
@@ -187,6 +191,6 @@ export class Main extends Sprite {
 CanvasKitInit({
     locateFile: (file) => '/node_modules/canvaskit-wasm/bin/'+file,
 }).then((canvasKit:CanvasKit) => {
-    FlashPort.canvasKit = canvasKit;
+    FPConfig.canvasKit = canvasKit;
     new Main();
 });

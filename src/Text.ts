@@ -1,8 +1,8 @@
-import { Sprite } from "@fp/flash/display/Sprite";
-import { Matrix } from "@fp/flash/geom/Matrix";
-import { TextField } from "@fp/flash/text/TextField";
-import { TextFieldType } from "@fp/flash/text/TextFieldType";
-import { TextFormat } from "@fp/flash/text/TextFormat";
+import { Sprite } from "@flashport/flashport";
+import { Matrix } from "@flashport/flashport";
+import { TextField } from "@flashport/flashport";
+import { TextFieldType } from "@flashport/flashport";
+import { TextFormat } from "@flashport/flashport";
 
 export class Text extends Sprite {
   constructor() {
