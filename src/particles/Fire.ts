@@ -9,7 +9,7 @@ export class Fire extends Sprite
     private _pool:Particle[] = [];
     private _activePool:Particle[] = [];   
 
-    private readonly MAX_POOL:number = 700;
+    private readonly MAX_POOL:number = 400;
     private readonly START_WIDTH_MAX:number = 200;
     private readonly END_HEIGHT_MAX:number = -400;
     private readonly MIN_SPEED:number = 6;
@@ -25,6 +25,8 @@ export class Fire extends Sprite
         for (let i:number = 0; i < this.MAX_POOL; i++)
         {
             var particle:Particle = new Particle();
+            particle.visible = false;
+            this.addChild(particle);
             this._pool.push(particle);
         }
 
@@ -51,7 +53,7 @@ export class Fire extends Sprite
                 particle.sineAmplitude = this.randomNumber(1, 10) % 2 == 0 ? .1 : -.1;
                 particle.transform.colorTransform = new ColorTransform();
                 particle.transform.colorTransform.color = j%8 == 0 ? 0x000000 : 0xFF7700;
-                this.addChild(particle);
+                particle.visible = true;
                 this._activePool.push(particle);
             }
         }
@@ -68,7 +70,6 @@ export class Fire extends Sprite
             {
                 let whiteSmoke:boolean = Math.abs(activeParticle.y / activeParticle.endPos) > .25;
                 let colorSpeed:number =  whiteSmoke ? 40 : 6;
-                
                 activeParticle.transform.colorTransform.redOffset += colorSpeed;
                 activeParticle.transform.colorTransform.greenOffset += colorSpeed;
                 activeParticle.transform.colorTransform.blueOffset += colorSpeed;
@@ -79,7 +80,7 @@ export class Fire extends Sprite
                 this._activePool[i] = this._activePool.pop();  // fast array removal
                 len -= 1;
                 i--;
-                this.removeChild(activeParticle);
+                activeParticle.visible = false;
                 this._pool.push(activeParticle);
                 activeParticle.y = 0;
             }

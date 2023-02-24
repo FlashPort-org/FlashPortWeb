@@ -15,8 +15,8 @@
     "vite-tsconfig-paths": "^3.5.1"
   },
   "dependencies": {
-    "@flashport/flashport": "^0.0.2",
-    "@flashport/flashportui": "^0.0.3",
+    "@flashport/flashport": "^0.0.8",
+    "@flashport/flashportui": "^0.0.9",
     "canvaskit-wasm": "^0.34.1"
   }
 }

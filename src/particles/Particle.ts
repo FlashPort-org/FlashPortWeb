@@ -14,12 +14,11 @@ export class Particle extends Shape
     constructor()
     {
         super();
-
+        
         this.graphics.beginFill(this._color);
         this.graphics.drawCircle(0, 0, 10);
 
         //this.filters = [new BlurFilter(7,7)];
-        this.cacheAsBitmap = true;
     }
 
     public set color(value) {
@@ -28,7 +27,6 @@ export class Particle extends Shape
         this.graphics.clear();
         this.graphics.beginFill(this._color);
         this.graphics.drawCircle(0, 0, 10);
-        this.cacheAsBitmap = true;
     }
 
     public get color():number {

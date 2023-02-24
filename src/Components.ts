@@ -1,4 +1,4 @@
-import { Sprite } from "@flashport/flashport";
+import { Sprite, Tweener } from "@flashport/flashport";
 import { Matrix } from "@flashport/flashport";
 import { MouseEvent } from "@flashport/flashport";
 import { LineChart } from "@flashport/flashportui";
@@ -14,7 +14,9 @@ import { KAlert } from "@flashport/flashportui";
 
 export class Components extends Sprite
 {
-    constructor()
+    private alertBox:KAlert;
+	
+	constructor()
     {
         super();
 
@@ -93,15 +95,18 @@ export class Components extends Sprite
 
 	private handleAlert = (e:MouseEvent):void =>
 	{
-		var alertBox:KAlert = new KAlert("Hello, this is an Alert!", 250);
-		alertBox.okBTN.addEventListener(MouseEvent.CLICK, this.alertClicked);
-		alertBox.cancelBTN.addEventListener(MouseEvent.CLICK, this.alertClicked);
-		this.addChild(alertBox);
+		this.alertBox = new KAlert("Hello, this is an Alert!", 250);
+		this.alertBox.okBTN.addEventListener(MouseEvent.CLICK, this.alertClicked);
+		this.alertBox.cancelBTN.addEventListener(MouseEvent.CLICK, this.alertClicked);
+		this.alertBox.alpha = 0;
+		this.alertBox.y = ((this.stage.height - this.alertBox.height) / 2) - 40;
+		(this.stage.root as Sprite).addChild(this.alertBox);
+		Tweener.addTween(this.alertBox, {time:1, alpha:1, y: this.alertBox.y + 40});
 	}
 	
 	private alertClicked = (e:MouseEvent):void =>
 	{
-		this.removeChild(e.currentTarget.parent);
+		(this.stage.root as Sprite).removeChild(this.alertBox);
 	}
 
 	private xFormat = (chartX:number):string =>

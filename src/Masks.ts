@@ -1,4 +1,4 @@
-import { Bitmap } from "@flashport/flashport";
+import { Bitmap, FPConfig } from "@flashport/flashport";
 import { Loader } from "@flashport/flashport";
 import { Shape } from "@flashport/flashport";
 import { Sprite } from "@flashport/flashport";
@@ -27,29 +27,22 @@ export class Masks extends Sprite
         this.graphics.beginGradientFill("linear", [0x464646, 0xFFFFFF], [.3,.43], [0, 255], btMat);
         this.graphics.drawRoundRect(0, 0, 500, 500, 15, 15);
 
+        var tree:Bitmap = new Bitmap(FPConfig.images['tree']);
+        
+        tree.x = (this.width - tree.width) / 2;
+        tree.y = (this.height - tree.height) / 2;
 
-        var tree:Bitmap;
-        let ld:Loader = new Loader();
-        ld.contentLoaderInfo.addEventListener(AEvent.COMPLETE, (e:AEvent):void =>
-        {
-            tree = ld.contentLoaderInfo.content as Bitmap;
-            tree.scaleX = tree.scaleY = .6;
-            tree.x = (this.width - tree.width) / 2;
-            tree.y = (this.height - tree.height) / 2;
+        this.masker = new Sprite();
+        this.masker.graphics.beginFill(0x000000, .75);
+        this.masker.graphics.drawCircle(0, 0, 150);
+        this.masker.x = this.width / 2;
+        this.masker.y = this.height / 2;
+        this.addChild(this.masker);
+        tree.mask = this.masker;
 
-            this.masker = new Sprite();
-            this.masker.graphics.beginFill(0x000000, .75);
-            this.masker.graphics.drawCircle(0, 0, 150);
-            this.masker.x = this.width / 2;
-            this.masker.y = this.height / 2;
-            this.addChild(this.masker);
-            tree.mask = this.masker;
-
-            this.addChild(tree);
-
-            this.addEventListener(MouseEvent.MOUSE_OVER, this.handleMouseOver);
-        });
-        ld.load(new URLRequest("assets/tree.png"));
+        this.addChild(tree);
+        this.addEventListener(MouseEvent.MOUSE_OVER, this.handleMouseOver);
+       
 
 
         let fmt:TextFormat = new TextFormat('Arial', 22, 0xFFFFFF);
@@ -63,7 +56,7 @@ export class Masks extends Sprite
 
     private handleMouseOver = (e:MouseEvent):void =>
     {
-        this.masker.startDrag(true, new Rectangle(150, 150, 200, 200));
+        this.masker.startDrag(true, new Rectangle(155, 155, 190, 190));
         this.addEventListener(MouseEvent.MOUSE_OUT, this.handleMouseOut);
     }
 
